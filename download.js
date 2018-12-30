@@ -36,7 +36,7 @@
 			blob,
 			reader;
 			myBlob= myBlob.call ? myBlob.bind(self) : Blob ;
-	  
+
 		if(String(this)==="true"){ //reverse arguments, allowing download.bind(true, "text/xml", "export.xml") to act as a callback
 			payload=[payload, mimeType];
 			mimeType=payload[0];
@@ -96,7 +96,7 @@
 
 			for(i;i<mx;++i) uiArr[i]= binData.charCodeAt(i);
 
-			return new myBlob([uiArr], {type: type});
+			return new myBlob([decodeURIComponent(binData)], {type: type});
 		 }
 
 		function saver(url, winMode){
